@@ -9,5 +9,28 @@
 
 </head>
 <body>
+<?php
+    $file = 'places.csv';
+
+    $csv = array_map('str_getcsv', file($file));
+
+    array_walk($csv, function(&$a) use ($csv) {
+        $a = array_combine($csv[0], $a);
+        $coordinates = explode(',', $a['coordinates']);
+        $a['latitude'] = $coordinates['0'];
+        $a['longitude'] = $coordinates['1'];
+//        var_dump($a);
+    });
+    array_shift($csv); # remove column header
+
+    $csv = json_encode($csv);
+
+    echo '<script>
+        const posts ='.$csv.';</script>';
+
+
+
+?>
+
 </body>
 </html>

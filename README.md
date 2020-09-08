@@ -1,0 +1,1 @@
+Dont work with JavaScript 6 or 7 month, with ajax working 1,5 years ago. Last year write microservise aplication (Java, Laravel, RabbitMq, Docker)
